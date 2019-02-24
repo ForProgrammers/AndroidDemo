@@ -1,0 +1,8 @@
+// 调用的时候使用rootProject.
+ext {
+
+    //配置一些 公共参数
+    apply_as_app = rootDir.getAbsolutePath() + "/config/sub_module_app_config.gradle"
+    apply_as_lib = rootDir.getAbsolutePath() + "/config/sub_module_lib_config.gradle"
+
+}

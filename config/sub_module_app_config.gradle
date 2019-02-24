@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion Integer.parseInt(android_build_sdk_version)
+    buildToolsVersion android_build_tools_version
+
+    publishNonDefault true
+
+    defaultConfig {
+        applicationId "com.carrey.mousika.base"
+        multiDexEnabled true
+        minSdkVersion Integer.parseInt(android_build_min_sdk_version)
+        targetSdkVersion android_build_target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/app/AndroidManifest.xml'
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}

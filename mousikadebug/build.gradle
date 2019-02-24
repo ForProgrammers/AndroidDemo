@@ -1,29 +1,11 @@
-apply plugin: 'com.android.library'
+print("-------- mousika debug module  -------")
+def isLib = true
 
-android {
-    compileSdkVersion 28
-
-
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
+if (isLib) {
+    apply from: rootProject.apply_as_lib
+} else {
+    apply from: rootProject.apply_as_app
 }
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
