@@ -1,20 +1,26 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
 
+    //配置一些 公共参数
+
+
+}
+//这个是基础配置，所有的子模块都会读取到这个配置里面的内容，当构建开始的时候，就开始读取这个 buildscript{} 里面的内容。
 buildscript {
-    ext.kotlin_version = '1.2.71'
+
+    apply from: rootDir.getAbsolutePath() + "/config/kotlin_support.gradle"
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath kotlin_classpath
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
-
+//一般是配置所有模块的共同使用的内容。
 allprojects {
     repositories {
         google()
